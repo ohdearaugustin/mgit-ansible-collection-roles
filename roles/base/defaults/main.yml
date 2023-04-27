@@ -19,7 +19,7 @@ base_ubuntu_linux_hwe: false
 base_install_ethtool_setringmax: true
 # base_cpu_governor: performance
 
-base_apt_repo_zone: "{{ apt_repo_zone }}"
+base_apt_repo_zone: "{{ apt_repo_zone | default('internet') }}"
 
 base_apt_repo_debian_components:
   - main

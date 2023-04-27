@@ -1,0 +1,9 @@
+# debian mirrors
+deb https://deb.debian.org/debian {{ ansible_distribution_release }} {{ base_apt_repo_debian_components | join (' ') }}
+deb https://deb.debian.org/debian {{ ansible_distribution_release }}-updates {{ base_apt_repo_debian_components | join (' ') }}
+deb https://deb.debian.org/debian-security {{ ansible_distribution_release }}-security {{ base_apt_repo_debian_components | join (' ') }}
+{% if ansible_distribution_major_version >= 11 %} {# bullseye #}
+deb https://deb.debian.org/debian-security {{ ansible_distribution_release }}-security {{ base_apt_repo_debian_components | join (' ') }}
+{% else %}
+deb https://deb.debian.org/debian-security {{ ansible_distribution_release }}/updates {{ base_apt_repo_debian_components | join (' ') }}
+{% endif %}
