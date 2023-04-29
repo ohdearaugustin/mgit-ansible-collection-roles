@@ -19,7 +19,8 @@ base_ubuntu_linux_hwe: false
 base_install_ethtool_setringmax: true
 # base_cpu_governor: performance
 
-base_apt_repo_zone: "{{ apt_repo_zone | default('internet') }}"
+# Other valid options include azure, hetzner, intranet and raspbian
+base_apt_repo_zone: internet
 
 base_apt_repo_debian_components:
   - main
